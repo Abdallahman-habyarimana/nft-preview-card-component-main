@@ -48,10 +48,35 @@ body {
     height: auto;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 1px 24px 8px 7px rgba(0,0,0,0.59);
+    -webkit-box-shadow: 1px 24px 8px 7px rgba(0,0,0,0.59);
+    -moz-box-shadow: 1px 24px 8px 7px rgba(0,0,0,0.59);
+    cursor: pointer;
 }
 
-.wrapper img {
+
+.img-container {
+    background-image: url('../images/image-equilibrium.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 240px;
     border-radius : 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    
+}
+
+.wrapper.active  .img-container {
+    background-color: var(--primary-cyan);
+    filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
+}
+
+.wrapper.active  .title {
+    color: var(--primary-cyan);
 }
 
 .title {
@@ -72,11 +97,67 @@ body {
     justify-content: space-between;
 }
 
+.right, .left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-sz);
+}
+
 .etherium .left span {
     color: var(--primary-cyan);
+    margin-left: .2rem;
+    font-size: var(--font-sz);
+    font-family: 400;
+    letter-spacing: 1px;
 }
 
 .etherium .right span {
-    color: var(--primary-soft-blue);
-    font-size: 10px;
+    color: var(--primary-soft-blue); 
+    margin-left: 5px;
 }
+
+.avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: var(--mg-top);
+}
+
+.avatar img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--neutral-white);
+    margin-right: 20px;
+}
+
+.avatar::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid var(--primary-soft-blue);
+    opacity: .5;
+}
+
+.avatar span {
+    color: var(--primary-soft-blue);
+    
+}
+
+strong {
+    color: var(--primary-cyan);
+}
+
+@media only screen and(max-width: 375px) {
+    .wrapper {
+        padding: 10px;
+    }
+}
+
+
+
+
